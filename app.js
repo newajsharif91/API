@@ -6,6 +6,23 @@ const loadPhone = async (searchText) => {
 };
 const diaplayPhone = (phones) => {
   const phoneContainer = document.getElementById("phone-container");
+  phoneContainer.innerText = "";
+  //Display 20 Phone Only
+  phones = phones.slice(0, 3);
+
+  //Display No Phone
+
+const noPhone=document.getElementById('no-phone-found');
+if(phones.length === 0 ){
+    noPhone.classList.remove('d-none')
+}
+else{
+    noPhone.classList.add('d-none')
+}
+
+
+
+
   phones.forEach((phone) => {
     const phoneDiv = document.createElement("div");
     phoneDiv.classList.add("col");
@@ -21,7 +38,7 @@ const diaplayPhone = (phones) => {
     `;
     phoneContainer.appendChild(phoneDiv);
   });
-};
+};;
 document.getElementById("btn-search").addEventListener("click", function () {
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
